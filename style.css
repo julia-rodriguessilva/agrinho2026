@@ -1,142 +1,447 @@
-:root{
---militar:#4B5320;
---verde:#99CD85;
---escuro:#2B2B2B;
---card:#3A3A3A;
+/* ==========================
+   AGRINHO 2026 - STYLE.CSS
+   ========================== */
+
+:root {
+    --verde-militar: #355E3B;
+    --verde-claro: #99CD85;
+    --cinza-escuro: #1b1b1b;
+    --cinza-card: rgba(40, 40, 40, 0.85);
+    --branco: #ffffff;
+    --sombra: 0 10px 30px rgba(0,0,0,0.3);
 }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-background:var(--escuro);
-color:white;
-overflow-x:hidden;
+html {
+    scroll-behavior: smooth;
 }
 
-#leafCanvas{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-z-index:-1;
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(
+        180deg,
+        #101010,
+        #1b1b1b,
+        #243524
+    );
+    color: white;
+    overflow-x: hidden;
 }
 
-header{
-background:var(--militar);
-padding:25px;
-text-align:center;
-box-shadow:0 0 15px black;
+/* ==========================
+   PARTICLES
+   ========================== */
+
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    top: 0;
+    left: 0;
 }
 
-.hero{
-padding:50px;
-text-align:center;
+/* ==========================
+   NAVBAR
+   ========================== */
+
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px 8%;
+
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(12px);
+
+    z-index: 999;
 }
 
-.hero h2{
-color:var(--verde);
-margin-bottom:20px;
+.logo {
+    color: var(--verde-claro);
+    font-size: 1.4rem;
+    font-weight: 700;
 }
 
-button{
-background:var(--verde);
-color:black;
-border:none;
-padding:12px 20px;
-border-radius:10px;
-cursor:pointer;
-font-weight:bold;
-transition:.3s;
-margin-top:10px;
+.navbar ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
 }
 
-button:hover{
-transform:scale(1.05);
+.navbar a {
+    text-decoration: none;
+    color: white;
+    transition: .3s;
 }
 
-.estatisticas{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-padding:30px;
+.navbar a:hover {
+    color: var(--verde-claro);
 }
 
-.stat-card{
-background:var(--card);
-padding:20px;
-border-radius:15px;
-text-align:center;
-border-left:5px solid var(--verde);
+/* ==========================
+   HERO
+   ========================== */
+
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    padding: 100px 20px;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,.55),
+            rgba(0,0,0,.65)
+        ),
+        url("https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1920&q=80");
+
+    background-size: cover;
+    background-position: center;
 }
 
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:20px;
-padding:30px;
+.hero-content {
+    max-width: 900px;
 }
 
-.card{
-background:var(--card);
-padding:20px;
-border-radius:15px;
+.hero h1 {
+    font-size: 4rem;
+    color: var(--verde-claro);
+    margin-bottom: 20px;
 }
 
-input{
-width:100%;
-padding:10px;
-border:none;
-border-radius:10px;
-margin:10px 0;
+.hero h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
 }
 
-.barra{
-width:100%;
-height:25px;
-background:#555;
-border-radius:20px;
-overflow:hidden;
-margin-top:15px;
+.hero p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    margin-bottom: 35px;
 }
 
-#fill{
-width:0%;
-height:100%;
-background:var(--verde);
-transition:1s;
+.btn {
+    display: inline-block;
+
+    padding: 15px 35px;
+
+    background: var(--verde-claro);
+    color: black;
+    font-weight: bold;
+    border-radius: 40px;
+
+    text-decoration: none;
+
+    transition: .3s;
 }
 
-.grafico{
-padding:30px;
+.btn:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--sombra);
 }
 
-#desmatamentoChart{
-background:white;
-border-radius:15px;
-padding:15px;
+/* ==========================
+   SEÇÕES
+   ========================== */
+
+section {
+    padding: 100px 8%;
 }
 
-.titulo-mapa{
-text-align:center;
-margin-bottom:20px;
+section h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    color: var(--verde-claro);
+    font-size: 2.5rem;
 }
 
-#map{
-height:500px;
-margin:20px;
-border-radius:15px;
-overflow:hidden;
+.container {
+    max-width: 1200px;
+    margin: auto;
 }
 
-footer{
-background:var(--militar);
-padding:20px;
-text-align:center;
-margin-top:20px;
+/* ==========================
+   CARDS SOBRE
+   ========================== */
+
+.cards {
+    margin-top: 50px;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: 30px;
+}
+
+.card {
+    background: var(--cinza-card);
+
+    border: 1px solid rgba(255,255,255,.1);
+
+    backdrop-filter: blur(10px);
+
+    border-radius: 20px;
+
+    padding: 30px;
+
+    text-align: center;
+
+    transition: .4s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    border-color: var(--verde-claro);
+}
+
+.card h3 {
+    color: var(--verde-claro);
+    margin-bottom: 15px;
+}
+
+/* ==========================
+   ESTATÍSTICAS
+   ========================== */
+
+.estatisticas {
+    background: rgba(0,0,0,.25);
+}
+
+.stats-container {
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+
+    gap: 25px;
+}
+
+.stat-card {
+
+    background: var(--cinza-card);
+
+    padding: 35px;
+
+    border-radius: 20px;
+
+    text-align: center;
+
+    transition: .4s;
+}
+
+.stat-card:hover {
+    transform: scale(1.05);
+}
+
+.counter {
+
+    display: block;
+
+    font-size: 3rem;
+
+    color: var(--verde-claro);
+
+    font-weight: bold;
+
+    margin-bottom: 10px;
+}
+
+/* ==========================
+   MAPA
+   ========================== */
+
+.parana {
+    text-align: center;
+}
+
+.mapa-container {
+    max-width: 700px;
+    margin: auto;
+}
+
+.mapa-container img {
+    width: 100%;
+    border-radius: 20px;
+
+    background: white;
+
+    padding: 20px;
+
+    transition: .5s;
+}
+
+.mapa-container img:hover {
+    transform: scale(1.03);
+}
+
+/* ==========================
+   GRÁFICO
+   ========================== */
+
+.grafico-container {
+
+    background: rgba(255,255,255,.05);
+
+    padding: 30px;
+
+    border-radius: 20px;
+
+    max-width: 1000px;
+
+    margin: auto;
+}
+
+/* ==========================
+   AÇÕES
+   ========================== */
+
+.acoes-grid {
+
+    display: grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+
+    gap: 25px;
+}
+
+.acao {
+
+    background: var(--cinza-card);
+
+    padding: 25px;
+
+    border-radius: 20px;
+
+    text-align: center;
+
+    font-size: 1.1rem;
+
+    transition: .4s;
+}
+
+.acao:hover {
+    transform: translateY(-8px);
+    background: rgba(153,205,133,.15);
+}
+
+/* ==========================
+   TIMELINE
+   ========================== */
+
+.timeline-container {
+
+    max-width: 800px;
+
+    margin: auto;
+}
+
+.timeline-item {
+
+    margin: 25px 0;
+
+    background: var(--cinza-card);
+
+    padding: 20px;
+
+    border-left: 5px solid var(--verde-claro);
+
+    border-radius: 10px;
+
+    transition: .4s;
+}
+
+.timeline-item:hover {
+
+    transform: translateX(10px);
+}
+
+/* ==========================
+   FOOTER
+   ========================== */
+
+footer {
+
+    text-align: center;
+
+    padding: 40px;
+
+    background: #101010;
+
+    color: var(--verde-claro);
+}
+
+/* ==========================
+   SCROLLBAR
+   ========================== */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #111;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--verde-claro);
+    border-radius: 20px;
+}
+
+/* ==========================
+   RESPONSIVO
+   ========================== */
+
+@media(max-width:900px){
+
+    .hero h1{
+        font-size:3rem;
+    }
+
+    .hero h2{
+        font-size:1.5rem;
+    }
+
+    .navbar{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .navbar ul{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+}
+
+@media(max-width:600px){
+
+    .hero h1{
+        font-size:2.3rem;
+    }
+
+    .hero h2{
+        font-size:1.2rem;
+    }
+
+    section{
+        padding:80px 5%;
+    }
+
+    .counter{
+        font-size:2.2rem;
+    }
 }

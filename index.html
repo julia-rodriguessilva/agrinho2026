@@ -1,137 +1,298 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Agrinho 2026 - Preservação Ambiental</title>
+    <title>Agrinho 2026 | Preservação Ambiental</title>
 
-<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 
-<link rel="stylesheet"
-href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+    <!-- AOS -->
+    <link rel="stylesheet"
+        href="https://unpkg.com/aos@2.3.4/dist/aos.css">
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
+
 <body>
 
-<canvas id="leafCanvas"></canvas>
+    <!-- PARTICULAS -->
+    <div id="particles-js"></div>
 
-<header>
-<h1>🌱 Agrinho 2026</h1>
-<p>Preservação Ambiental no Paraná</p>
-</header>
+    <!-- NAVBAR -->
 
-<section class="hero">
-<h2>Preservar hoje para garantir o amanhã</h2>
+    <header>
 
-<button id="treeBtn">🌳 Plantar Árvore</button>
+        <nav class="navbar">
 
-<h3 id="counter">0 árvores preservadas</h3>
+            <div class="logo">
+                🌿 AGRINHO 2026
+            </div>
 
-<p id="badge">🏆 Nenhuma conquista ainda</p>
-</section>
+            <ul>
 
-<section class="estatisticas">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#estatisticas">Estatísticas</a></li>
+                <li><a href="#parana">Paraná</a></li>
+                <li><a href="#acoes">Ações</a></li>
 
-<div class="stat-card">
-<h2>74</h2>
-<p>Unidades de Conservação</p>
-</div>
+            </ul>
 
-<div class="stat-card">
-<h2>29,11%</h2>
-<p>Floresta Nativa</p>
-</div>
+        </nav>
 
-<div class="stat-card">
-<h2>665 mil+</h2>
-<p>Visitantes em áreas protegidas</p>
-</div>
+    </header>
 
-<div class="stat-card">
-<h2>64%</h2>
-<p>Redução do Desmatamento</p>
-</div>
+    <!-- HERO -->
 
-</section>
+    <section id="inicio" class="hero">
 
-<section class="cards">
+        <div class="hero-content" data-aos="fade-up">
 
-<div class="card">
-<h3>💧 Economia de Água</h3>
+            <h1>
+                Preservação Ambiental
+            </h1>
 
-<input type="number"
-id="minutes"
-placeholder="Minutos de banho">
+            <h2>
+                Construindo um futuro sustentável para o Paraná
+            </h2>
 
-<button onclick="calcularAgua()">
-Calcular
-</button>
+            <p>
+                A preservação ambiental é essencial para garantir a qualidade de vida das futuras gerações.
+                Pequenas ações de hoje podem gerar grandes transformações amanhã.
+            </p>
 
-<p id="resultadoAgua"></p>
+            <a href="#sobre" class="btn">
+                Saiba Mais
+            </a>
 
-</div>
+        </div>
 
-<div class="card">
+    </section>
 
-<h3>♻ Quiz Ambiental</h3>
+    <!-- SOBRE -->
 
-<p>Qual material pertence à coleta seletiva azul?</p>
+    <section id="sobre" class="sobre">
 
-<button onclick="quiz('certo')">Papel</button>
+        <div class="container">
 
-<button onclick="quiz('errado')">Vidro</button>
+            <h2 data-aos="fade-right">
+                🌱 Por que preservar?
+            </h2>
 
-<p id="quizResultado"></p>
+            <p data-aos="fade-left">
 
-</div>
+                A preservação ambiental protege os recursos naturais,
+                reduz impactos das mudanças climáticas,
+                conserva a biodiversidade e garante água,
+                solo fértil e qualidade de vida para todos.
 
-<div class="card">
+            </p>
 
-<h3>🌎 Meta Sustentável</h3>
+            <div class="cards">
 
-<button onclick="progresso()">
-Registrar ação sustentável
-</button>
+                <div class="card" data-aos="zoom-in">
+                    <h3>🌳 Florestas</h3>
+                    <p>
+                        Absorvem carbono e ajudam a regular o clima.
+                    </p>
+                </div>
 
-<div class="barra">
-<div id="fill"></div>
-</div>
+                <div class="card" data-aos="zoom-in" data-aos-delay="100">
+                    <h3>💧 Água</h3>
+                    <p>
+                        A proteção das nascentes garante abastecimento.
+                    </p>
+                </div>
 
-</div>
+                <div class="card" data-aos="zoom-in" data-aos-delay="200">
+                    <h3>🦜 Biodiversidade</h3>
+                    <p>
+                        Animais e plantas dependem de ecossistemas saudáveis.
+                    </p>
+                </div>
 
-</section>
+            </div>
 
-<section class="grafico">
+        </div>
 
-<h2>Redução do Desmatamento</h2>
+    </section>
 
-<canvas id="desmatamentoChart"></canvas>
+    <!-- ESTATISTICAS -->
 
-</section>
+    <section id="estatisticas" class="estatisticas">
 
-<section>
+        <h2 data-aos="fade-up">
+            📊 Estatísticas Ambientais
+        </h2>
 
-<h2 class="titulo-mapa">
-🗺 Áreas de Preservação do Paraná
-</h2>
+        <div class="stats-container">
 
-<div id="map"></div>
+            <div class="stat-card" data-aos="flip-left">
+                <span class="counter" data-target="1700000">0</span>
+                <h3>Hectares Preservados</h3>
+            </div>
 
-</section>
+            <div class="stat-card" data-aos="flip-left" data-aos-delay="100">
+                <span class="counter" data-target="300">0</span>
+                <h3>Unidades de Conservação</h3>
+            </div>
 
-<footer>
+            <div class="stat-card" data-aos="flip-left" data-aos-delay="200">
+                <span class="counter" data-target="50000">0</span>
+                <h3>Espécies Protegidas</h3>
+            </div>
 
-<p>
-Projeto Agrinho 2026 - Preservação Ambiental
-</p>
+            <div class="stat-card" data-aos="flip-left" data-aos-delay="300">
+                <span class="counter" data-target="800000">0</span>
+                <h3>Alunos Impactados</h3>
+            </div>
 
-</footer>
+        </div>
 
-<script src="script.js"></script>
+    </section>
+
+    <!-- MAPA PARANA -->
+
+    <section id="parana" class="parana">
+
+        <h2 data-aos="fade-up">
+            🗺️ Áreas de Preservação do Paraná
+        </h2>
+
+        <div class="mapa-container" data-aos="zoom-in">
+
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Parana_Municipios.svg"
+                alt="Mapa do Paraná">
+
+        </div>
+
+        <p>
+            O Paraná possui importantes áreas de preservação ambiental,
+            incluindo regiões de Mata Atlântica,
+            Floresta com Araucárias e parques estaduais.
+        </p>
+
+    </section>
+
+    <!-- GRAFICO -->
+
+    <section class="grafico-section">
+
+        <h2 data-aos="fade-up">
+            📈 Evolução da Preservação Ambiental
+        </h2>
+
+        <div class="grafico-container">
+
+            <canvas id="grafico"></canvas>
+
+        </div>
+
+    </section>
+
+    <!-- ACOES -->
+
+    <section id="acoes" class="acoes">
+
+        <h2 data-aos="fade-up">
+            🌎 O que podemos fazer?
+        </h2>
+
+        <div class="acoes-grid">
+
+            <div class="acao" data-aos="fade-right">
+                ♻️ Reciclar corretamente
+            </div>
+
+            <div class="acao" data-aos="fade-right" data-aos-delay="100">
+                🌳 Plantar árvores
+            </div>
+
+            <div class="acao" data-aos="fade-right" data-aos-delay="200">
+                💧 Economizar água
+            </div>
+
+            <div class="acao" data-aos="fade-right" data-aos-delay="300">
+                ⚡ Reduzir desperdícios
+            </div>
+
+            <div class="acao" data-aos="fade-right" data-aos-delay="400">
+                🚴 Utilizar transporte sustentável
+            </div>
+
+            <div class="acao" data-aos="fade-right" data-aos-delay="500">
+                🌱 Preservar áreas verdes
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- LINHA DO TEMPO -->
+
+    <section class="timeline">
+
+        <h2 data-aos="fade-up">
+            📅 Caminho para um Futuro Sustentável
+        </h2>
+
+        <div class="timeline-container">
+
+            <div class="timeline-item" data-aos="fade-right">
+                Educação Ambiental
+            </div>
+
+            <div class="timeline-item" data-aos="fade-left">
+                Conscientização
+            </div>
+
+            <div class="timeline-item" data-aos="fade-right">
+                Preservação
+            </div>
+
+            <div class="timeline-item" data-aos="fade-left">
+                Sustentabilidade
+            </div>
+
+            <div class="timeline-item" data-aos="fade-right">
+                Futuro Melhor
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- RODAPE -->
+
+    <footer>
+
+        <p>
+            Projeto Agrinho 2026 • Preservação Ambiental 🌿
+        </p>
+
+    </footer>
+
+    <!-- PARTICLES -->
+
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+    <!-- AOS -->
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <!-- SCRIPT -->
+
+    <script src="script.js"></script>
 
 </body>
+
 </html>

@@ -3,53 +3,135 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Agrinho 2026 - Preservação Ambiental</title>
+
 <link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet"
+href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
 </head>
 <body>
 
+<canvas id="leafCanvas"></canvas>
+
 <header>
-    <h1>🌱 Agrinho 2026</h1>
-    <p>Agro forte, futuro sustentável</p>
+<h1>🌱 Agrinho 2026</h1>
+<p>Preservação Ambiental no Paraná</p>
 </header>
 
 <section class="hero">
-    <h2>Preservar hoje para viver amanhã</h2>
-    <button id="treeBtn">🌳 Plantar Árvore</button>
-    <h3 id="counter">0 árvores preservadas</h3>
+<h2>Preservar hoje para garantir o amanhã</h2>
+
+<button id="treeBtn">🌳 Plantar Árvore</button>
+
+<h3 id="counter">0 árvores preservadas</h3>
+
+<p id="badge">🏆 Nenhuma conquista ainda</p>
+</section>
+
+<section class="estatisticas">
+
+<div class="stat-card">
+<h2>74</h2>
+<p>Unidades de Conservação</p>
+</div>
+
+<div class="stat-card">
+<h2>29,11%</h2>
+<p>Floresta Nativa</p>
+</div>
+
+<div class="stat-card">
+<h2>665 mil+</h2>
+<p>Visitantes em áreas protegidas</p>
+</div>
+
+<div class="stat-card">
+<h2>64%</h2>
+<p>Redução do Desmatamento</p>
+</div>
+
 </section>
 
 <section class="cards">
 
 <div class="card">
-    <h3>💧 Economia de Água</h3>
-    <input type="number" id="minutes" placeholder="Minutos de banho">
-    <button onclick="calcularAgua()">Calcular</button>
-    <p id="resultadoAgua"></p>
+<h3>💧 Economia de Água</h3>
+
+<input type="number"
+id="minutes"
+placeholder="Minutos de banho">
+
+<button onclick="calcularAgua()">
+Calcular
+</button>
+
+<p id="resultadoAgua"></p>
+
 </div>
 
 <div class="card">
-    <h3>♻ Quiz Sustentável</h3>
-    <p>Qual lixo pertence à coleta seletiva azul?</p>
-    <button onclick="quiz('certo')">Papel</button>
-    <button onclick="quiz('errado')">Vidro</button>
-    <p id="quizResultado"></p>
+
+<h3>♻ Quiz Ambiental</h3>
+
+<p>Qual material pertence à coleta seletiva azul?</p>
+
+<button onclick="quiz('certo')">Papel</button>
+
+<button onclick="quiz('errado')">Vidro</button>
+
+<p id="quizResultado"></p>
+
 </div>
 
 <div class="card">
-    <h3>🌎 Meta Ambiental</h3>
-    <button onclick="progresso()">Realizei uma ação sustentável</button>
-    <div class="barra">
-        <div id="fill"></div>
-    </div>
+
+<h3>🌎 Meta Sustentável</h3>
+
+<button onclick="progresso()">
+Registrar ação sustentável
+</button>
+
+<div class="barra">
+<div id="fill"></div>
+</div>
+
 </div>
 
 </section>
 
+<section class="grafico">
+
+<h2>Redução do Desmatamento</h2>
+
+<canvas id="desmatamentoChart"></canvas>
+
+</section>
+
+<section>
+
+<h2 class="titulo-mapa">
+🗺 Áreas de Preservação do Paraná
+</h2>
+
+<div id="map"></div>
+
+</section>
+
 <footer>
-    <p>Projeto Agrinho 2026 - Preservação Ambiental</p>
+
+<p>
+Projeto Agrinho 2026 - Preservação Ambiental
+</p>
+
 </footer>
 
 <script src="script.js"></script>
+
 </body>
 </html>

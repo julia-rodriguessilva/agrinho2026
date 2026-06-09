@@ -1,46 +1,78 @@
+:root{
+--militar:#4B5320;
+--verde:#99CD85;
+--escuro:#2B2B2B;
+--card:#3A3A3A;
+}
+
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial, sans-serif;
+font-family:Arial,sans-serif;
 }
 
 body{
-background:#2B2B2B;
+background:var(--escuro);
 color:white;
-min-height:100vh;
+overflow-x:hidden;
+}
+
+#leafCanvas{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:-1;
 }
 
 header{
-background:#4B5320;
+background:var(--militar);
 padding:25px;
 text-align:center;
-box-shadow:0 0 15px rgba(0,0,0,.4);
+box-shadow:0 0 15px black;
 }
 
 .hero{
-text-align:center;
 padding:50px;
+text-align:center;
 }
 
 .hero h2{
-color:#99CD85;
+color:var(--verde);
 margin-bottom:20px;
 }
 
 button{
-background:#99CD85;
-color:#2B2B2B;
+background:var(--verde);
+color:black;
 border:none;
 padding:12px 20px;
 border-radius:10px;
 cursor:pointer;
 font-weight:bold;
 transition:.3s;
+margin-top:10px;
 }
 
 button:hover{
 transform:scale(1.05);
+}
+
+.estatisticas{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+padding:30px;
+}
+
+.stat-card{
+background:var(--card);
+padding:20px;
+border-radius:15px;
+text-align:center;
+border-left:5px solid var(--verde);
 }
 
 .cards{
@@ -51,23 +83,17 @@ padding:30px;
 }
 
 .card{
-background:#3a3a3a;
+background:var(--card);
 padding:20px;
 border-radius:15px;
-box-shadow:0 0 15px rgba(0,0,0,.3);
-transition:.3s;
-}
-
-.card:hover{
-transform:translateY(-5px);
 }
 
 input{
 width:100%;
 padding:10px;
-margin:10px 0;
 border:none;
-border-radius:8px;
+border-radius:10px;
+margin:10px 0;
 }
 
 .barra{
@@ -82,13 +108,35 @@ margin-top:15px;
 #fill{
 width:0%;
 height:100%;
-background:#99CD85;
+background:var(--verde);
 transition:1s;
 }
 
-footer{
+.grafico{
+padding:30px;
+}
+
+#desmatamentoChart{
+background:white;
+border-radius:15px;
+padding:15px;
+}
+
+.titulo-mapa{
 text-align:center;
+margin-bottom:20px;
+}
+
+#map{
+height:500px;
+margin:20px;
+border-radius:15px;
+overflow:hidden;
+}
+
+footer{
+background:var(--militar);
 padding:20px;
-background:#4B5320;
-margin-top:30px;
+text-align:center;
+margin-top:20px;
 }

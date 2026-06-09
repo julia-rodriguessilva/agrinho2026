@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agrinho 2026 - Preservação Ambiental</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>🌱 Agrinho 2026</h1>
+    <p>Agro forte, futuro sustentável</p>
+</header>
+
+<section class="hero">
+    <h2>Preservar hoje para viver amanhã</h2>
+    <button id="treeBtn">🌳 Plantar Árvore</button>
+    <h3 id="counter">0 árvores preservadas</h3>
+</section>
+
+<section class="cards">
+
+<div class="card">
+    <h3>💧 Economia de Água</h3>
+    <input type="number" id="minutes" placeholder="Minutos de banho">
+    <button onclick="calcularAgua()">Calcular</button>
+    <p id="resultadoAgua"></p>
+</div>
+
+<div class="card">
+    <h3>♻ Quiz Sustentável</h3>
+    <p>Qual lixo pertence à coleta seletiva azul?</p>
+    <button onclick="quiz('certo')">Papel</button>
+    <button onclick="quiz('errado')">Vidro</button>
+    <p id="quizResultado"></p>
+</div>
+
+<div class="card">
+    <h3>🌎 Meta Ambiental</h3>
+    <button onclick="progresso()">Realizei uma ação sustentável</button>
+    <div class="barra">
+        <div id="fill"></div>
+    </div>
+</div>
+
+</section>
+
+<footer>
+    <p>Projeto Agrinho 2026 - Preservação Ambiental</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
